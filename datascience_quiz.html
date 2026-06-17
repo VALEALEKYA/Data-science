@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#4facfe,#00f2fe);
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+    color:#0077cc;
+}
+
+.question{
+    margin-bottom:20px;
+    padding:15px;
+    border-left:5px solid #0077cc;
+    background:#f8f9fa;
+}
+
+button{
+    background:#0077cc;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#005fa3;
+}
+
+#result{
+    margin-top:25px;
+    padding:15px;
+    font-size:18px;
+    border-radius:10px;
+}
+
+.correct{
+    color:green;
+    font-weight:bold;
+}
+
+.wrong{
+    color:red;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Data Science Quiz</h1>
+<h3>Total Marks: 10</h3>
+
+<form id="quizForm">
+
+<div class="question">
+<p><b>1. What is Data Science?</b></p>
+<input type="radio" name="q1" value="a"> Study of data to extract insights<br>
+<input type="radio" name="q1" value="b"> Study of hardware<br>
+<input type="radio" name="q1" value="c"> Study of networks<br>
+<input type="radio" name="q1" value="d"> Study of operating systems
+</div>
+
+<div class="question">
+<p><b>2. Which language is most commonly used in Data Science?</b></p>
+<input type="radio" name="q2" value="a"> HTML<br>
+<input type="radio" name="q2" value="b"> Python<br>
+<input type="radio" name="q2" value="c"> CSS<br>
+<input type="radio" name="q2" value="d"> XML
+</div>
+
+<div class="question">
+<p><b>3. What is the first step in the Data Science Life Cycle?</b></p>
+<input type="radio" name="q3" value="a"> Deployment<br>
+<input type="radio" name="q3" value="b"> Model Building<br>
+<input type="radio" name="q3" value="c"> Data Collection<br>
+<input type="radio" name="q3" value="d"> Evaluation
+</div>
+
+<div class="question">
+<p><b>4. Which step removes errors and missing values from data?</b></p>
+<input type="radio" name="q4" value="a"> Data Cleaning<br>
+<input type="radio" name="q4" value="b"> Deployment<br>
+<input type="radio" name="q4" value="c"> Collection<br>
+<input type="radio" name="q4" value="d"> Visualization
+</div>
+
+<div class="question">
+<p><b>5. What is the purpose of Data Visualization?</b></p>
+<input type="radio" name="q5" value="a"> Store Data<br>
+<input type="radio" name="q5" value="b"> Analyze Hardware<br>
+<input type="radio" name="q5" value="c"> Represent Data Graphically<br>
+<input type="radio" name="q5" value="d"> Delete Data
+</div>
+
+<div class="question">
+<p><b>6. Which phase builds predictive models?</b></p>
+<input type="radio" name="q6" value="a"> Data Collection<br>
+<input type="radio" name="q6" value="b"> Model Building<br>
+<input type="radio" name="q6" value="c"> Deployment<br>
+<input type="radio" name="q6" value="d"> Cleaning
+</div>
+
+<div class="question">
+<p><b>7. Which of the following is a Data Science application?</b></p>
+<input type="radio" name="q7" value="a"> Recommendation Systems<br>
+<input type="radio" name="q7" value="b"> Keyboard Design<br>
+<input type="radio" name="q7" value="c"> Printer Manufacturing<br>
+<input type="radio" name="q7" value="d"> Mouse Assembly
+</div>
+
+<div class="question">
+<p><b>8. What happens during model evaluation?</b></p>
+<input type="radio" name="q8" value="a"> Collect Data<br>
+<input type="radio" name="q8" value="b"> Check Model Performance<br>
+<input type="radio" name="q8" value="c"> Delete Data<br>
+<input type="radio" name="q8" value="d"> Store Data
+</div>
+
+<div class="question">
+<p><b>9. Which step places a model into real-world use?</b></p>
+<input type="radio" name="q9" value="a"> Deployment<br>
+<input type="radio" name="q9" value="b"> Cleaning<br>
+<input type="radio" name="q9" value="c"> Collection<br>
+<input type="radio" name="q9" value="d"> Analysis
+</div>
+
+<div class="question">
+<p><b>10. Data Science combines?</b></p>
+<input type="radio" name="q10" value="a"> Statistics, Programming, Domain Knowledge<br>
+<input type="radio" name="q10" value="b"> Only Hardware<br>
+<input type="radio" name="q10" value="c"> Only Networking<br>
+<input type="radio" name="q10" value="d"> Only Databases
+</div>
+
+<button type="button" onclick="checkQuiz()">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function checkQuiz(){
+
+let answers = {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#4facfe,#00f2fe);
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+    color:#0077cc;
+}
+
+.question{
+    margin-bottom:20px;
+    padding:15px;
+    border-left:5px solid #0077cc;
+    background:#f8f9fa;
+}
+
+button{
+    background:#0077cc;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#005fa3;
+}
+
+#result{
+    margin-top:25px;
+    padding:15px;
+    font-size:18px;
+    border-radius:10px;
+}
+
+.correct{
+    color:green;
+    font-weight:bold;
+}
+
+.wrong{
+    color:red;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Data Science Quiz</h1>
+<h3>Total Marks: 10</h3>
+
+<form id="quizForm">
+
+<div class="question">
+<p><b>1. What is Data Science?</b></p>
+<input type="radio" name="q1" value="a"> Study of data to extract insights<br>
+<input type="radio" name="q1" value="b"> Study of hardware<br>
+<input type="radio" name="q1" value="c"> Study of networks<br>
+<input type="radio" name="q1" value="d"> Study of operating systems
+</div>
+
+<div class="question">
+<p><b>2. Which language is most commonly used in Data Science?</b></p>
+<input type="radio" name="q2" value="a"> HTML<br>
+<input type="radio" name="q2" value="b"> Python<br>
+<input type="radio" name="q2" value="c"> CSS<br>
+<input type="radio" name="q2" value="d"> XML
+</div>
+
+<div class="question">
+<p><b>3. What is the first step in the Data Science Life Cycle?</b></p>
+<input type="radio" name="q3" value="a"> Deployment<br>
+<input type="radio" name="q3" value="b"> Model Building<br>
+<input type="radio" name="q3" value="c"> Data Collection<br>
+<input type="radio" name="q3" value="d"> Evaluation
+</div>
+
+<div class="question">
+<p><b>4. Which step removes errors and missing values from data?</b></p>
+<input type="radio" name="q4" value="a"> Data Cleaning<br>
+<input type="radio" name="q4" value="b"> Deployment<br>
+<input type="radio" name="q4" value="c"> Collection<br>
+<input type="radio" name="q4" value="d"> Visualization
+</div>
+
+<div class="question">
+<p><b>5. What is the purpose of Data Visualization?</b></p>
+<input type="radio" name="q5" value="a"> Store Data<br>
+<input type="radio" name="q5" value="b"> Analyze Hardware<br>
+<input type="radio" name="q5" value="c"> Represent Data Graphically<br>
+<input type="radio" name="q5" value="d"> Delete Data
+</div>
+
+<div class="question">
+<p><b>6. Which phase builds predictive models?</b></p>
+<input type="radio" name="q6" value="a"> Data Collection<br>
+<input type="radio" name="q6" value="b"> Model Building<br>
+<input type="radio" name="q6" value="c"> Deployment<br>
+<input type="radio" name="q6" value="d"> Cleaning
+</div>
+
+<div class="question">
+<p><b>7. Which of the following is a Data Science application?</b></p>
+<input type="radio" name="q7" value="a"> Recommendation Systems<br>
+<input type="radio" name="q7" value="b"> Keyboard Design<br>
+<input type="radio" name="q7" value="c"> Printer Manufacturing<br>
+<input type="radio" name="q7" value="d"> Mouse Assembly
+</div>
+
+<div class="question">
+<p><b>8. What happens during model evaluation?</b></p>
+<input type="radio" name="q8" value="a"> Collect Data<br>
+<input type="radio" name="q8" value="b"> Check Model Performance<br>
+<input type="radio" name="q8" value="c"> Delete Data<br>
+<input type="radio" name="q8" value="d"> Store Data
+</div>
+
+<div class="question">
+<p><b>9. Which step places a model into real-world use?</b></p>
+<input type="radio" name="q9" value="a"> Deployment<br>
+<input type="radio" name="q9" value="b"> Cleaning<br>
+<input type="radio" name="q9" value="c"> Collection<br>
+<input type="radio" name="q9" value="d"> Analysis
+</div>
+
+<div class="question">
+<p><b>10. Data Science combines?</b></p>
+<input type="radio" name="q10" value="a"> Statistics, Programming, Domain Knowledge<br>
+<input type="radio" name="q10" value="b"> Only Hardware<br>
+<input type="radio" name="q10" value="c"> Only Networking<br>
+<input type="radio" name="q10" value="d"> Only Databases
+</div>
+
+<button type="button" onclick="checkQuiz()">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function checkQuiz(){
+
+let answers = {
+q1:"a",
+q2:"b",
+q3:"c",
+q4:"a",
+q5:"c",
+q6:"b",
+q7:"a",
+q8:"b",
+q9:"a",
+q10:"a"
+};
+
+let remarks = {
+q1:"Data Science is the study of data to extract meaningful insights.",
+q2:"Python is the most popular language used in Data Science.",
+q3:"Data Collection is the first stage of the Data Science Life Cycle.",
+q4:"Data Cleaning removes errors, duplicates and missing values.",
+q5:"Visualization helps understand data through charts and graphs.",
+q6:"Model Building creates predictive or analytical models.",
+q7:"Recommendation Systems are a common Data Science application.",
+q8:"Evaluation checks how accurately a model performs.",
+q9:"Deployment makes the model available for real-world use.",
+q10:"Data Science combines Statistics, Programming and Domain Knowledge."
+};
+
+let score = 0;
+let feedback = "<h2>Quiz Result</h2>";
+
+for(let key in answers){
+
+let selected = document.querySelector(`input[name="${key}"]:checked`);
+
+if(selected && selected.value === answers[key]){
+score++;
+}
+else{
+feedback += `<p class='wrong'>${key.toUpperCase()} Incorrect ➜ ${remarks[key]}</p>`;
+}
+}
+
+feedback += `<hr>
+<h2 class='correct'>Score: ${score}/10</h2>`;
+
+if(score >= 8){
+feedback += "<h3 class='correct'>Excellent! You have a strong understanding of Data Science.</h3>";
+}
+else if(score >=5){
+feedback += "<h3 style='color:orange;'>Good Attempt! Revise the Data Science Life Cycle.</h3>";
+}
+else{
+feedback += "<h3 class='wrong'>Needs Improvement! Review Data Science fundamentals.</h3>";
+}
+
+document.getElementById("result").innerHTML = feedback;
+}
+
+</script>
+
+</body>
+</html>
