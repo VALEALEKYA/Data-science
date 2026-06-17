@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction to Data Science & Life Cycle</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Hero Section */
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    margin-bottom:20px;
+    animation:slideDown 1.5s ease;
+}
+
+.hero p{
+    font-size:1.2rem;
+    max-width:900px;
+    line-height:1.8;
+    animation:fadeIn 2s ease;
+}
+
+.highlight{
+    color:#38bdf8;
+}
+
+/* Floating Animation */
+.data-icon{
+    font-size:60px;
+    margin:20px;
+    animation:float 3s infinite ease-in-out;
+}
+
+/* Section Styling */
+section{
+    padding:80px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+    color:#38bdf8;
+}
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(56,189,248,0.7);
+}
+
+.card h3{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+/* Lifecycle Timeline */
+.timeline{
+    position:relative;
+    max-width:1200px;
+    margin:auto;
+}
+
+.timeline::after{
+    content:'';
+    position:absolute;
+    width:6px;
+    background:#38bdf8;
+    top:0;
+    bottom:0;
+    left:50%;
+    margin-left:-3px;
+}
+
+.container{
+    padding:20px 40px;
+    position:relative;
+    width:50%;
+}
+
+.left{
+    left:0;
+}
+
+.right{
+    left:50%;
+}
+
+.content{
+    background:white;
+    color:#0f172a;
+    padding:20px;
+    border-radius:15px;
+    position:relative;
+    animation:appear 1s ease forwards;
+}
+
+.container::after{
+    content:'';
+    position:absolute;
+    width:25px;
+    height:25px;
+    right:-14px;
+    background:#38bdf8;
+    border-radius:50%;
+    top:25px;
+    z-index:1;
+}
+
+.right::after{
+    left:-12px;
+}
+
+/* Animated Cycle */
+.cycle{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.step{
+    background:#38bdf8;
+    color:#0f172a;
+    padding:20px;
+    border-radius:50%;
+    width:140px;
+    height:140px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    font-weight:bold;
+    animation:pulse 2s infinite;
+}
+
+.arrow{
+    font-size:40px;
+    display:flex;
+    align-items:center;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#020617;
+}
+
+/* Animations */
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+@keyframes slideDown{
+    from{
+        opacity:0;
+        transform:translateY(-50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:768px){
+
+.timeline::after{
+    left:20px;
+}
+
+.container{
+    width:100%;
+    padding-left:60px;
+    padding-right:20px;
+}
+
+.right{
+    left:0;
+}
+
+.container::after{
+    left:8px;
+}
+
+.hero h1{
+    font-size:2.2rem;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="data-icon">📊</div>
+    <h1>Introduction to <span class="highlight">Data Science</span></h1>
+
+    <p>
+        Data Science is an interdisciplinary field that combines
+        Statistics, Mathematics, Programming, Machine Learning,
+        and Domain Knowledge to extract meaningful insights from data.
+        Organizations use Data Science to make informed decisions,
+        predict future trends, improve efficiency, and solve real-world
+        problems.
+    </p>
+</div>
+
+<!-- Why Data Science -->
+<section>
+    <h2 class="section-title">Why Data Science?</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>📈 Better Decisions</h3>
+            <p>
+                Data-driven insights help organizations make accurate
+                and evidence-based decisions.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🤖 Automation</h3>
+            <p>
+                Machine learning automates repetitive tasks and
+                improves productivity.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🔮 Prediction</h3>
+            <p>
+                Predict future trends such as sales forecasting,
+                disease prediction, and customer behavior.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🌍 Real-world Impact</h3>
+            <p>
+                Used in healthcare, finance, agriculture,
+                education, and smart cities.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Life Cycle Animation -->
+<section>
+
+    <h2 class="section-title">
+        Data Science Life Cycle
+    </h2>
+
+    <div class="cycle">
+
+        <div class="step">Business Understanding</div>
+        <div class="arrow">➡</div>
+
+        <div class="step">Data Collection</div>
+        <div class="arrow">➡</div>
+
+        <div class="step">Data Cleaning</div>
+        <div class="arrow">➡</div>
+
+        <div class="step">Analysis</div>
+        <div class="arrow">➡</div>
+
+        <div class="step">Model Building</div>
+        <div class="arrow">➡</div>
+
+        <div class="step">Deployment</div>
+
+    </div>
+
+</section>
+
+<!-- Detailed Life Cycle -->
+<section>
+
+<h2 class="section-title">
+Detailed Explanation of Data Science Life Cycle
+</h2>
+
+<div class="timeline">
+
+<div class="container left">
+<div class="content">
+<h3>1. Business Understanding</h3>
+<p>
+Identify the problem and define project objectives.
+Example: Predict student performance.
+</p>
+</div>
+</div>
+
+<div class="container right">
+<div class="content">
+<h3>2. Data Collection</h3>
+<p>
+Gather data from databases, surveys,
+sensors, websites, and APIs.
+</p>
+</div>
+</div>
+
+<div class="container left">
+<div class="content">
+<h3>3. Data Cleaning</h3>
+<p>
+Remove missing values, duplicates,
+noise, and inconsistencies.
+</p>
+</div>
+</div>
+
+<div class="container right">
+<div class="content">
+<h3>4. Exploratory Data Analysis</h3>
+<p>
+Understand patterns, trends,
+correlations, and distributions using
+statistics and visualizations.
+</p>
+</div>
+</div>
+
+<div class="container left">
+<div class="content">
+<h3>5. Feature Engineering</h3>
+<p>
+Create useful variables and transform
+data to improve model performance.
+</p>
+</div>
+</div>
+
+<div class="container right">
+<div class="content">
+<h3>6. Model Building</h3>
+<p>
+Apply Machine Learning algorithms
+such as Linear Regression,
+Decision Trees, and Random Forest.
+</p>
+</div>
+</div>
+
+<div class="container left">
+<div class="content">
+<h3>7. Evaluation</h3>
+<p>
+Measure model accuracy using
+metrics like Precision, Recall,
+Accuracy, and F1-score.
+</p>
+</div>
+</div>
+
+<div class="container right">
+<div class="content">
+<h3>8. Deployment</h3>
+<p>
+Deploy the model into production
+for real-world use.
+</p>
+</div>
+</div>
+
+<div class="container left">
+<div class="content">
+<h3>9. Monitoring</h3>
+<p>
+Continuously monitor model performance
+and update it when required.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- Interactive Demo -->
+<section>
+
+<h2 class="section-title">
+Interactive Learning
+</h2>
+
+<div class="card" style="text-align:center">
+
+<h3 id="stepTitle">Click Start</h3>
+
+<p id="stepText">
+Learn the Data Science Life Cycle step-by-step.
+</p>
+
+<br>
+
+<button onclick="nextStep()"
+style="
+padding:12px 25px;
+border:none;
+border-radius:10px;
+background:#38bdf8;
+font-size:18px;
+cursor:pointer;">
+Start Animation
+</button>
+
+</div>
+
+</section>
+
+<footer>
+    <h3>Data Science Fundamentals for Undergraduate Students</h3>
+    <p>Learn • Analyze • Predict • Innovate</p>
+</footer>
+
+<script>
+
+const steps = [
+{
+title:"Business Understanding",
+text:"Define the problem and objectives."
+},
+{
+title:"Data Collection",
+text:"Gather data from various sources."
+},
+{
+title:"Data Cleaning",
+text:"Handle missing values and errors."
+},
+{
+title:"Exploratory Data Analysis",
+text:"Visualize and understand the data."
+},
+{
+title:"Feature Engineering",
+text:"Create useful features for modeling."
+},
+{
+title:"Model Building",
+text:"Train machine learning algorithms."
+},
+{
+title:"Evaluation",
+text:"Measure model performance."
+},
+{
+title:"Deployment",
+text:"Deploy the model to users."
+},
+{
+title:"Monitoring",
+text:"Track and improve model performance."
+}
+];
+
+let current=0;
+
+function nextStep(){
+
+document.getElementById("stepTitle").innerHTML=
+steps[current].title;
+
+document.getElementById("stepText").innerHTML=
+steps[current].text;
+
+current++;
+
+if(current>=steps.length){
+current=0;
+}
+
+}
+</script>
+
+</body>
+</html>
