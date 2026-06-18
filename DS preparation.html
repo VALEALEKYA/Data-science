@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science Interview Prep — Senior Level</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f0f11;
+    --bg2: #16161a;
+    --bg3: #1e1e24;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #e8e6e3;
+    --text2: #9b9896;
+    --text3: #6b6966;
+    --accent: #7c6af5;
+    --accent2: #5b52d6;
+    --accent-bg: rgba(124,106,245,0.12);
+    --accent-border: rgba(124,106,245,0.3);
+    --teal: #2dd4a0;
+    --teal-bg: rgba(45,212,160,0.1);
+    --amber: #f5a623;
+    --amber-bg: rgba(245,166,35,0.1);
+    --coral: #f56b6b;
+    --coral-bg: rgba(245,107,107,0.1);
+    --green: #6bcb77;
+    --green-bg: rgba(107,203,119,0.1);
+    --pink: #e879a0;
+    --pink-bg: rgba(232,121,160,0.1);
+    --blue: #60a5fa;
+    --blue-bg: rgba(96,165,250,0.1);
+    --gray-bg: rgba(255,255,255,0.05);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 2.5rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .header-left .eyebrow {
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  header h1 {
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  header h1 span { color: var(--accent); }
+  .header-meta {
+    font-size: 13px;
+    color: var(--text2);
+    margin-top: 6px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid;
+  }
+  .badge-purple { background: var(--accent-bg); color: var(--accent); border-color: var(--accent-border); }
+  .badge-teal { background: var(--teal-bg); color: var(--teal); border-color: rgba(45,212,160,0.3); }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    gap: 4px;
+    padding: 1rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-link {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--text2);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all .15s;
+    border: 1px solid transparent;
+  }
+  .nav-link:hover { color: var(--text); background: var(--bg3); border-color: var(--border); }
+  .nav-link.active { color: var(--accent); background: var(--accent-bg); border-color: var(--accent-border); }
+
+  /* ── MAIN LAYOUT ── */
+  main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+
+  section { margin-bottom: 3.5rem; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    min-width: 32px;
+  }
+  .section-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .section-header p {
+    font-size: 13px;
+    color: var(--text2);
+    margin-left: auto;
+  }
+
+  /* ── TOPIC GRID ── */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+  }
+  .topic-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    transition: border-color .15s, background .15s;
+    cursor: default;
+  }
+  .topic-card:hover { border-color: var(--border2); background: var(--bg3); }
+  .topic-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .topic-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .topic-card h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .topic-card p {
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.55;
+  }
+  .topic-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+  .tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: var(--gray-bg);
+    color: var(--text3);
+    border: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── STEPPER ── */
+  .stepper-tabs {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+  .step-tab {
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--bg2);
+    color: var(--text2);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .step-tab:hover { border-color: var(--border2); color: var(--text); }
+  .step-tab.active { background: var(--accent-bg); color: var(--accent); border-color: var(--accent-border); font-weight: 500; }
+
+  .phase-panel {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+  .phase-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--accent-border);
+  }
+  .phase-panel h3 { font-size: 16px; font-weight: 600; color: var(--text); }
+  .phase-tag-pill {
+    margin-left: auto;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    border: 1px solid;
+  }
+  .tag-foundation { background: rgba(245,166,35,.1); color: var(--amber); border-color: rgba(245,166,35,.3); }
+  .tag-data { background: var(--blue-bg); color: var(--blue); border-color: rgba(96,165,250,.3); }
+  .tag-modeling { background: var(--teal-bg); color: var(--teal); border-color: rgba(45,212,160,.3); }
+  .tag-production { background: var(--coral-bg); color: var(--coral); border-color: rgba(245,107,107,.3); }
+
+  .sub-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text3);
+    font-family: 'JetBrains Mono', monospace;
+    margin: 1.1rem 0 .5rem;
+  }
+  .concept-list { display: flex; flex-direction: column; gap: 6px; }
+  .concept-item {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+    padding: 8px 12px;
+    background: var(--bg3);
+    border-radius: 8px;
+    border-left: 2px solid var(--accent-border);
+  }
+  .concept-item strong { color: var(--text); font-weight: 500; }
+
+  .q-list { display: flex; flex-direction: column; gap: 6px; }
+  .q-item {
+    font-size: 13px;
+    color: var(--text2);
+    padding: 7px 12px;
+    background: var(--bg3);
+    border-radius: 8px;
+    border-left: 2px solid rgba(45,212,160,.4);
+    line-height: 1.5;
+  }
+  .q-item::before { content: "Q  "; color: var(--teal); font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+
+  .tools-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .tool-chip {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 8px;
+    background: var(--gray-bg);
+    color: var(--text2);
+    border: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .phase-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .phase-nav-btn {
+    padding: 7px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg3);
+    color: var(--text2);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .phase-nav-btn:hover:not(:disabled) { border-color: var(--border2); color: var(--text); }
+  .phase-nav-btn:disabled { opacity: .3; cursor: default; }
+  .phase-counter { font-size: 12px; color: var(--text3); font-family: 'JetBrains Mono', monospace; }
+
+  /* ── TIPS GRID ── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+  }
+  .tip-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+  }
+  .tip-card h4 { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .tip-card p { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 2.5rem;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text3);
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+  @media (max-width: 600px) {
+    header, nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    main { padding: 1.5rem 1.25rem 3rem; }
+    .topic-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="eyebrow">Interview prep kit</div>
+    <h1>Data Science — <span>Senior Level</span></h1>
+    <p class="header-meta">10 years experience &nbsp;·&nbsp; Complete preparation guide</p>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-self:flex-start;margin-top:6px">
+    <span class="badge badge-purple">Senior / 10 yrs</span>
+    <span class="badge badge-teal">8 lifecycle phases</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#topics" class="nav-link active">Topic overview</a>
+  <a href="#lifecycle" class="nav-link">DS life cycle</a>
+  <a href="#tips" class="nav-link">Interview tips</a>
+</nav>
+
+<main>
+
+  <!-- ── SECTION 1: TOPIC OVERVIEW ── -->
+  <section id="topics">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Key interview topics</h2>
+      <p>Tap any card to focus your prep</p>
+    </div>
+    <div class="topic-grid">
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon" style="background:rgba(124,106,245,.15);">🧠</div>
+          <h3>Machine learning</h3>
+        </div>
+        <p>Supervised, unsupervised, semi-supervised. Bias-variance tradeoff, overfitting, regularization. SVMs, ensemble methods, boosting algorithms.</p>
+        <div class="topic-tags">
+          <span class="tag">sklearn</span><span class="tag">XGBoost</span><span class="tag">Random Forest</span><span class="tag">L1/L2</span>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon" style="background:rgba(96,165,250,.15);">🔬</div>
+          <h3>Deep learning</h3>
+        </div>
+        <p>CNNs, RNNs, LSTMs, Transformers. Backpropagation, optimizers (Adam, SGD). Transfer learning, fine-tuning, LLMs, prompt engineering.</p>
+        <div class="topic-tags">
+          <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">BERT</span><span class="tag">GPT</span>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon" style="background:rgba(45,212,160,.15);">📊</div>
+          <h3>Statistics & probability</h3>
+        </div>
+        <p>Hypothesis testing, p-values, A/B testing. Distributions, CLT, Bayesian inference. Confidence intervals, effect size, statistical significance.</p>
+        <div class="topic-tags">
+          <span class="tag">A/B testing</span><span class="tag">Bayesian</span><span class="tag">p-value</span><span class="tag">CLT</span>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon" style="background:rgba(245,107,107,.15);">🛠</div>
+          <h3>Feature engineering</h3>
+        </div>
+        <p>Encoding, scaling, imputation. Feature selection, PCA, dimensionality reduction. Handling imbalanced data, sklearn pipelines to prevent leakage.</p>
+        <div class="topic-tags">
+          <span class="tag">PCA</span><span class="tag">SMOTE</span><span class="tag">Pipeline</span><span class="tag">Encoding</span>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon" style="background:rgba(245,166,35,.15);">🎯</div>
+          <h3>Model evaluation</h3>
+        </div>
+        <p>Accuracy, F1, AUC-ROC, RMSE, MAE. Cross-validation strategies, confusion matrix. Precision-recall curves, choosing the right metric.</p>
+        <div class="topic-tags">
+          <span class="tag">AUC-ROC</span><span class="tag">F1</span><span class="tag">CV</span><span class="tag">SHAP</span>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon" style="background:rgba(107,203,119,.15);">🗄</div>
+          <h3>SQL & data manipulation</h3>
+        </div>
+        <p>Joins, window functions, CTEs, aggregations. Subqueries, indexing strategies. Pandas, Spark, data pipeline design at scale.</p>
+        <div class="topic-tags">
+          <span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">Spark</span><span class="tag">Window fns</span>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon" style="background:rgba(232,121,160,.15);">🚀</div>
+          <h3>MLOps & deployment</h3>
+        </div>
+        <p>Model serving, REST APIs, Docker, Kubernetes. Model monitoring, drift detection. CI/CD for ML, feature stores, model versioning.</p>
+        <div class="topic-tags">
+          <span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">MLflow</span><span class="tag">K8s</span>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon" style="background:rgba(96,165,250,.15);">💬</div>
+          <h3>NLP & GenAI</h3>
+        </div>
+        <p>Tokenization, embeddings, BERT, GPT. Prompt engineering, RAG, vector databases. Sentiment analysis, NER, text classification.</p>
+        <div class="topic-tags">
+          <span class="tag">Transformers</span><span class="tag">RAG</span><span class="tag">Embeddings</span><span class="tag">LLM</span>
+        </div>
+      </div>
+
+      <div class="topic-card" style="grid-column: 1 / -1; border-color: var(--accent-border); background: var(--accent-bg);">
+        <div class="topic-card-header">
+          <div class="topic-icon" style="background:rgba(124,106,245,.2);">🎤</div>
+          <h3 style="color:var(--accent)">Business impact & storytelling</h3>
+        </div>
+        <p style="color:var(--text2)">Translate results into business decisions. Stakeholder communication, dashboards. Project ownership, mentoring, handling failure stories with the STAR method.</p>
+        <div class="topic-tags">
+          <span class="tag">STAR method</span><span class="tag">Stakeholders</span><span class="tag">KPIs</span><span class="tag">Leadership</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: DS LIFECYCLE ── -->
+  <section id="lifecycle">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Data science life cycle</h2>
+      <p>Step through all 8 phases</p>
+    </div>
+
+    <div class="stepper-tabs" id="stepper-tabs"></div>
+    <div class="phase-panel" id="phase-panel"></div>
+  </section>
+
+  <!-- ── SECTION 3: TIPS ── -->
+  <section id="tips">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Interview tips — senior level</h2>
+    </div>
+    <div class="tips-grid">
+
+      <div class="tip-card">
+        <h4>Lead with trade-offs, not answers</h4>
+        <p>Interviewers at senior level expect you to discuss <em>why</em> you chose one approach over another. Don't just say "I used XGBoost" — explain why over a neural network for this specific problem.</p>
+      </div>
+
+      <div class="tip-card">
+        <h4>Use real project examples</h4>
+        <p>For every concept, prepare a 1-minute story from your own work. "At my last role, we had a class imbalance problem and I chose…" beats a textbook answer every time.</p>
+      </div>
+
+      <div class="tip-card">
+        <h4>Don't skip baselines</h4>
+        <p>Always mention that you start with a simple baseline (logistic regression, majority class) before building complex models. This signals engineering maturity.</p>
+      </div>
+
+      <div class="tip-card">
+        <h4>Production > notebooks</h4>
+        <p>For 10 yrs experience, expect deep questions on deployment, monitoring, and drift. Candidates who only know Jupyter tend to fail senior interviews.</p>
+      </div>
+
+      <div class="tip-card">
+        <h4>Talk about failures honestly</h4>
+        <p>Senior interviewers want to hear about a model that failed in production. Prepare a STAR story: what went wrong, how you diagnosed it, what you changed, what you learned.</p>
+      </div>
+
+      <div class="tip-card">
+        <h4>Statistical rigor matters</h4>
+        <p>Many DS candidates underestimate stats questions. Be ready to explain p-values, confidence intervals, and A/B test design from first principles — not just how to run them.</p>
+      </div>
+
+      <div class="tip-card">
+        <h4>GenAI is expected now</h4>
+        <p>Even if your background is classical ML, know the basics of transformers, embeddings, RAG, and prompt engineering. These appear in senior interviews even for non-NLP roles.</p>
+      </div>
+
+      <div class="tip-card">
+        <h4>Business impact over accuracy</h4>
+        <p>When asked about a project, lead with business value ("reduced churn by 18%") before technical metrics. Senior roles require you to connect models to outcomes stakeholders care about.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Data Science Interview Prep &nbsp;·&nbsp; Senior Level · 10 Years Experience &nbsp;·&nbsp; All 8 lifecycle phases covered
+</footer>
+
+<script>
+const phases = [
+  {
+    title: "Problem definition",
+    tag: "Foundation", tagClass: "tag-foundation",
+    concepts: [
+      "<strong>Business understanding:</strong> Translate a business problem into a data science question — classification, regression, clustering, or recommendation.",
+      "<strong>Success metrics:</strong> Define what 'solved' looks like before touching data — accuracy threshold, revenue uplift, churn reduction percentage.",
+      "<strong>Feasibility check:</strong> Do we have data? Is it labeled? Is the problem solvable with ML or just a rule-based heuristic?",
+      "<strong>Scope & constraints:</strong> Timeline, compute budget, interpretability needs. Regulated domains (finance, healthcare) require explainability — SHAP, LIME."
+    ],
+    questions: [
+      "How do you translate a vague business problem into a solvable ML problem?",
+      "How do you decide if a problem needs ML or a simple rule-based solution?",
+      "What questions do you ask stakeholders before starting a data science project?"
+    ],
+    tools: ["Stakeholder interviews", "CRISP-DM framework", "KPI definition", "Project charter"]
+  },
+  {
+    title: "Data collection",
+    tag: "Data phase", tagClass: "tag-data",
+    concepts: [
+      "<strong>Sources:</strong> Databases (SQL/NoSQL), REST APIs, web scraping, IoT streams, third-party vendors, public datasets (Kaggle, UCI, Hugging Face).",
+      "<strong>Data types:</strong> Structured (tabular), semi-structured (JSON/XML), unstructured (text, images, audio, video).",
+      "<strong>Volume vs quality:</strong> More data doesn't always help — noisy labels hurt more than fewer clean samples. Quality over quantity.",
+      "<strong>Data governance:</strong> Privacy laws (GDPR, HIPAA, PDPA), data lineage tracking, consent management — critical for regulated industries.",
+      "<strong>Sampling strategy:</strong> Random, stratified, cluster, systematic — choose based on class distribution and data size."
+    ],
+    questions: [
+      "How do you handle data that arrives in real-time vs batch processing?",
+      "What is data lineage and why does it matter for reproducibility?",
+      "How do you ensure data collection doesn't introduce sampling bias?"
+    ],
+    tools: ["Apache Kafka", "Apache Airflow", "Scrapy", "SQL", "REST APIs", "Apache Spark"]
+  },
+  {
+    title: "Data cleaning & EDA",
+    tag: "Data phase", tagClass: "tag-data",
+    concepts: [
+      "<strong>Missing values:</strong> Mean/median/mode imputation, KNN imputation, MICE (multiple imputation), or drop — choice depends on missingness pattern (MCAR, MAR, MNAR).",
+      "<strong>Outliers:</strong> IQR method, Z-score, isolation forest — decide whether to remove, cap (winsorize), or keep based on domain context. Never blindly delete.",
+      "<strong>Duplicates & inconsistencies:</strong> Dedup rows, standardize categorical values ('NY' vs 'New York'), fix data type issues.",
+      "<strong>EDA:</strong> Distribution plots, correlation heatmaps, pair plots, box plots — understand relationships before modeling.",
+      "<strong>Class imbalance check:</strong> If 99:1, accuracy is meaningless — use precision-recall, AUC-ROC, or F1 as primary metrics."
+    ],
+    questions: [
+      "What is the difference between MCAR, MAR, and MNAR missing data?",
+      "How do you handle outliers in a dataset — remove or keep?",
+      "What EDA steps do you always perform before building any model?"
+    ],
+    tools: ["Pandas", "Matplotlib", "Seaborn", "Plotly", "ydata-profiling", "Great Expectations"]
+  },
+  {
+    title: "Feature engineering",
+    tag: "Modeling phase", tagClass: "tag-modeling",
+    concepts: [
+      "<strong>Encoding:</strong> Label encoding (ordinal), one-hot (nominal), target encoding (high cardinality, e.g. 1000+ categories), embeddings (NLP/categorical).",
+      "<strong>Scaling:</strong> StandardScaler (Gaussian assumption) for linear models; MinMaxScaler for neural nets; tree models don't need scaling at all.",
+      "<strong>Feature creation:</strong> Polynomial features, interaction terms, date decomposition (day of week, hour, quarter), lag features for time series.",
+      "<strong>Dimensionality reduction:</strong> PCA (linear, fast), t-SNE/UMAP (visualization only, don't use for training), LASSO for sparse selection.",
+      "<strong>Pipelines:</strong> Always wrap preprocessing in sklearn Pipeline — prevents data leakage during cross-validation. Never fit on test set."
+    ],
+    questions: [
+      "What is target encoding and when would you use it over one-hot encoding?",
+      "How does data leakage happen during feature engineering — give a real example?",
+      "Explain when PCA is and isn't appropriate to use."
+    ],
+    tools: ["sklearn Pipeline", "FeatureTools", "Category Encoders", "PCA", "UMAP"]
+  },
+  {
+    title: "Model building & training",
+    tag: "Modeling phase", tagClass: "tag-modeling",
+    concepts: [
+      "<strong>Algorithm selection:</strong> Linear/logistic (baseline, interpretable), tree ensembles (XGBoost, Random Forest — tabular king), neural nets (images, NLP), KNN (small datasets).",
+      "<strong>Bias-variance tradeoff:</strong> High bias = underfitting (too simple), high variance = overfitting (too complex). Use regularization (L1/L2) and early stopping.",
+      "<strong>Hyperparameter tuning:</strong> Grid search (exhaustive), random search (faster), Bayesian optimization (Optuna — smarter). Always tune on validation, NOT test set.",
+      "<strong>Ensemble methods:</strong> Bagging (Random Forest reduces variance), boosting (XGBoost/LightGBM/CatBoost — adds weak learners sequentially), stacking.",
+      "<strong>Imbalanced data:</strong> SMOTE (synthetic oversampling), class_weight='balanced', threshold moving on predicted probabilities."
+    ],
+    questions: [
+      "When would you choose XGBoost over a neural network for a tabular problem?",
+      "Explain L1 vs L2 regularization — what does each do to the model coefficients?",
+      "How do you prevent overfitting in a deep learning model?"
+    ],
+    tools: ["sklearn", "XGBoost", "LightGBM", "CatBoost", "PyTorch", "TensorFlow", "Optuna"]
+  },
+  {
+    title: "Model evaluation",
+    tag: "Modeling phase", tagClass: "tag-modeling",
+    concepts: [
+      "<strong>Classification metrics:</strong> Accuracy (balanced only), Precision & Recall (imbalance), F1 (harmonic mean), AUC-ROC (discrimination), Log loss (probabilistic calibration).",
+      "<strong>Regression metrics:</strong> MAE (robust to outliers), MSE/RMSE (penalizes large errors more), R² (variance explained), MAPE (percentage error — bad with near-zero values).",
+      "<strong>Cross-validation:</strong> K-Fold (general), Stratified K-Fold (class imbalance), Time-Series Split (temporal — NEVER shuffle time series data).",
+      "<strong>Confusion matrix:</strong> TP, FP, FN, TN — understand when FN is worse than FP (cancer screening vs spam detection). Threshold tuning matters.",
+      "<strong>Baseline comparison:</strong> Always compare against majority class or mean predictor — a model must beat baselines or it adds no value."
+    ],
+    questions: [
+      "When is AUC-ROC misleading? When would you prefer the precision-recall curve?",
+      "Why can you NOT use standard K-Fold cross-validation on time series data?",
+      "A model has 99% accuracy on your dataset — is it good? How do you investigate?"
+    ],
+    tools: ["sklearn metrics", "SHAP", "LIME", "yellowbrick", "MLflow", "Weights & Biases"]
+  },
+  {
+    title: "Model deployment",
+    tag: "Production phase", tagClass: "tag-production",
+    concepts: [
+      "<strong>Serving options:</strong> REST API (FastAPI/Flask), batch inference (Spark, Airflow scheduler), streaming inference (Kafka + model server), edge (ONNX, TFLite).",
+      "<strong>Containerization:</strong> Docker packages model + all dependencies for reproducibility. Kubernetes manages scaling, rolling updates, and orchestration in production.",
+      "<strong>Model registries:</strong> MLflow, W&B — version models, store artifacts, compare experiments, link to training data. Critical for reproducibility and audits.",
+      "<strong>A/B testing deployment:</strong> Deploy new model to a % of traffic. Compare business metrics with statistical significance before full rollout.",
+      "<strong>Shadow deployment:</strong> Run new model in parallel without affecting users — compare predictions vs live model safely before switching."
+    ],
+    questions: [
+      "How would you deploy a model that needs to return predictions under 100ms at scale?",
+      "What is shadow deployment and when would you prefer it over A/B testing?",
+      "How do you handle model versioning and rollbacks in production?"
+    ],
+    tools: ["FastAPI", "Docker", "Kubernetes", "MLflow", "BentoML", "Seldon Core", "AWS SageMaker"]
+  },
+  {
+    title: "Monitoring & maintenance",
+    tag: "Production phase", tagClass: "tag-production",
+    concepts: [
+      "<strong>Data drift:</strong> Input feature distributions shift over time (user behavior, market changes). Detect with KS test, Population Stability Index (PSI), Jensen-Shannon divergence.",
+      "<strong>Concept drift:</strong> The relationship between features and target changes — model trained pre-COVID behaves differently post-COVID. Requires full retraining.",
+      "<strong>Model decay:</strong> Performance degrades gradually. Set up automated retraining triggers on metric thresholds. Schedule regular performance reviews.",
+      "<strong>Monitoring stack:</strong> Log predictions + actuals → compute metrics over time → alert on drift or degradation. Tools: Evidently AI, Whylogs, Prometheus + Grafana.",
+      "<strong>Feedback loops:</strong> Collect ground truth labels from production (delayed labels, human-in-the-loop review) to build retraining datasets continuously."
+    ],
+    questions: [
+      "What is the difference between data drift and concept drift — give a real-world example of each?",
+      "How do you set up a monitoring pipeline for a model you just deployed?",
+      "How would you handle a model that starts degrading rapidly after deployment?"
+    ],
+    tools: ["Evidently AI", "Whylogs", "Grafana", "Prometheus", "Arize AI", "Great Expectations"]
+  }
+];
+
+let current = 0;
+
+function renderTabs() {
+  const container = document.getElementById('stepper-tabs');
+  container.innerHTML = phases.map((p, i) =>
+    `<button class="step-tab${i===current?' active':''}" onclick="goTo(${i})">${i+1}. ${p.title.split(' ')[0]}</button>`
+  ).join('');
+}
+
+function renderPanel() {
+  const p = phases[current];
+  document.getElementById('phase-panel').innerHTML = `
+    <div class="phase-header">
+      <span class="phase-num">Phase ${current+1} / ${phases.length}</span>
+      <h3>${p.title}</h3>
+      <span class="phase-tag-pill ${p.tagClass}">${p.tag}</span>
+    </div>
+
+    <div class="sub-label">Key concepts</div>
+    <div class="concept-list">
+      ${p.concepts.map(c => `<div class="concept-item">${c}</div>`).join('')}
+    </div>
+
+    <div class="sub-label">Likely interview questions</div>
+    <div class="q-list">
+      ${p.questions.map(q => `<div class="q-item">${q}</div>`).join('')}
+    </div>
+
+    <div class="sub-label">Tools & libraries to mention</div>
+    <div class="tools-wrap">
+      ${p.tools.map(t => `<span class="tool-chip">${t}</span>`).join('')}
+    </div>
+
+    <div class="phase-nav">
+      <button class="phase-nav-btn" onclick="goTo(${current-1})" ${current===0?'disabled':''}>← Previous phase</button>
+      <span class="phase-counter">${current+1} of ${phases.length}</span>
+      <button class="phase-nav-btn" onclick="goTo(${current+1})" ${current===phases.length-1?'disabled':''}>Next phase →</button>
+    </div>
+  `;
+}
+
+function goTo(i) {
+  if (i < 0 || i >= phases.length) return;
+  current = i;
+  renderTabs();
+  renderPanel();
+  document.getElementById('lifecycle').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+renderTabs();
+renderPanel();
+
+// Smooth nav active state on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', () => {
+  let found = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) found = s.id;
+  });
+  navLinks.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#'+found);
+  });
+});
+</script>
+</body>
+</html>
