@@ -1,0 +1,53 @@
+<!-- Course Resources & Faculty Contact Section -->
+    <h2>7. Mapped Course Resources & Departmental Coordination</h2>
+    <p>
+        To ensure alignment between industry training expectations and core curriculum execution, the program cross-references foundational datasets with active academic semester coursework repositories.
+    </p>
+
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-top: 4px solid #1e3a8a; padding: 25px; border-radius: 6px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); margin-bottom: 35px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+            
+            <!-- Left Column: Course & Faculty Details -->
+            <div style="flex: 1; min-width: 280px;">
+                <h3 style="margin: 0 0 8px 0; font-size: 16px; color: #0f172a; font-weight: 600;">Academic Material Reference</h3>
+                <p style="margin: 0 0 15px 0; font-size: 14px; color: #64748b;">
+                    Course: <strong>Data Mining (DM)</strong> | Year-Semester: <strong>3-1 (AY 2026-27)</strong>
+                </p>
+                
+                <div style="font-size: 14px; color: #475569; line-height: 1.5;">
+                    <div style="margin-bottom: 6px;">
+                        <span style="color: #94a3b8; font-weight: 500; display: inline-block; width: 110px;">Coordinator:</span> 
+                        <strong style="color: #1e293b;">Mrs. Vale Alekya</strong> (Assistant Professor)
+                    </div>
+                    <div style="margin-bottom: 6px;">
+                        <span style="color: #94a3b8; font-weight: 500; display: inline-block; width: 110px;">Department:</span> 
+                        Information Technology (IT)
+                    </div>
+                    <div>
+                        <span style="color: #94a3b8; font-weight: 500; display: inline-block; width: 110px;">Institution:</span> 
+                        Anil Neerukonda Institute of Technology & Sciences
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive Quick-Links -->
+            <div style="display: flex; flex-direction: column; gap: 10px; min-width: 220px; justify-content: center;">
+                <!-- Google Drive Resource Button (Replace '#' with your actual Drive link) -->
+                <a href="https://drive.google.com/drive/folders/1sMMShPL5aGam_3vS7FUZbimPe3RmEqoy" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; background-color: #10b981; color: #ffffff; text-decoration: none; padding: 10px 16px; border-radius: 5px; font-size: 13.5px; font-weight: 600; text-align: center; box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2); transition: background 0.2s;">
+                    <svg style="width: 16px; height: 16px; margin-right: 8px; fill: currentColor;" viewBox="0 0 24 24">
+                        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3zM12 9l-4 4h3v3h2v-3h3z"/>
+                    </svg>
+                    Access Google Drive Materials
+                </a>
+                
+                <!-- Email Faculty Button -->
+                <a href="mailto:alekya.it@anits.edu.in?subject=Inquiry regarding DM Materials 3-1 (25-26)" style="display: inline-flex; align-items: center; justify-content: center; background-color: #1e3a8a; color: #ffffff; text-decoration: none; padding: 10px 16px; border-radius: 5px; font-size: 13.5px; font-weight: 600; text-align: center; box-shadow: 0 2px 4px rgba(30, 58, 138, 0.2); transition: background 0.2s;">
+                    <svg style="width: 16px; height: 16px; margin-right: 8px; fill: currentColor;" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    Contact via ANITS Mail
+                </a>
+            </div>
+
+        </div>
+    </div>
